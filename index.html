@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='id'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="description" content="Form khusus untuk perokok">
+    <title>Form Survey Perokok</title>
+</head>
+<body>
+    <main>
+        <article>
+            <h1>Form Perokok</h1>
+            <form action="/index.html">
+                <label for="name">Siapa nama Anda?</label>
+                <br>
+                <input id="name" name="name" placeholder="Nama lengkap..." type="text" />
+                <br>
+                <label for="age">Berapa umur Anda?</label>
+                <br>
+                <input id="age" name="age" placeholder="Umur..." type="text"/>
+                <br>
+
+                <div>
+                    <label for="sex-m">Apa jenis kelamin Anda?</label>
+                    <br>
+                    <input type="radio" name="sex" value="male" id="sex-m"/>
+                    <label for="sex-m">Laki-laki</label>
+                    
+                    <input type="radio" name="sex" value="female" id="sex-f"/>
+                    <label for="sex-f">Perempuan</label>
+                </div>
+
+                <div>
+                    <label for="smoker-y">Apa Anda perokok?</label>
+                    <br>
+                    <input type="radio" name="smoker" value="true" id="smoker-y"/>
+                    <label for="smoker-y">Ya</label>
+
+                    <input type="radio" name="smoker" value="false" id="smoker-n"/>
+                    <label for="smoker-n">Tidak</label>
+                </div>
+
+                <div>
+                    <label for="brand-filter">Jika anda perokok, rokok apa yang Anda pernah coba?</label>
+                    <br>
+                    <input type="checkbox" name="brand" value="filter" id="brand-filter" />
+                    <label for="brand-filter">Gudang Garam Filter</label>
+                    <br>
+                    <input type="checkbox" name="brand" value="ls" id="brand-ls" />
+                    <label for="brand-ls">Lucky Strike</label>
+                    <br>
+                    <input type="checkbox" name="brand" value="mb" id="brand-mb" />
+                    <label for="brand-mb">Marlboro</label>
+                    <br>
+                    <input type="checkbox" name="brand" value="esse" id="brand-esse" />
+                    <label for="brand-esse">Esse</label>
+                </div>
+
+                <button type="submit">Kirim Form</button>
+                <button type="reset">Reset</button>
+            </form>
+        </article>
+    </main>
+</body>
+</html>
