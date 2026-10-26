@@ -2,6 +2,10 @@
 
 Form survey perokok dengan HTML
 
-## Demostration
+## Demonstration
 
 ![Form Demo](/demo.gif)
+
+## Collected Form Entries Example
+
+![Data Example](/image.png)
