@@ -17,51 +17,71 @@
             <form action="/index.html">
                 <div>
                     <label for="name">Siapa nama Anda?</label>
-                    <input id="name" name="name" placeholder="Nama lengkap..." type="text" />
+                    <div>
+                        <input id="name" name="name" placeholder="Nama lengkap..." type="text" />
+                    </div>
                 </div>
 
                 <div>
                     <label for="age">Berapa umur Anda?</label>
-                    <input id="age" name="age" placeholder="Umur..." type="text"/>
+                    <div>
+                        <input id="age" name="age" placeholder="Umur..." type="number"/>
+                    </div>
                 </div>
 
                 <div>
                     <label for="sex-m">Apa jenis kelamin Anda?</label>
 
-                    <input type="radio" name="sex" value="male" id="sex-m"/>
-                    <label for="sex-m">Laki-laki</label>
-                    
-                    <input type="radio" name="sex" value="female" id="sex-f"/>
-                    <label for="sex-f">Perempuan</label>
+                    <div>
+                        <input type="radio" name="sex" value="male" id="sex-m"/>
+                        <label for="sex-m">Laki-laki</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="sex" value="female" id="sex-f"/>
+                        <label for="sex-f">Perempuan</label>
+                    </div>
                 </div>
 
                 <div>
                     <label for="smoker-y">Apa Anda perokok?</label>
-                    <input type="radio" name="smoker" value="true" id="smoker-y"/>
-                    <label for="smoker-y">Ya</label>
 
-                    <input type="radio" name="smoker" value="false" id="smoker-n"/>
-                    <label for="smoker-n">Tidak</label>
+                    <div>
+                        <input type="radio" name="smoker" value="true" id="smoker-y"/>
+                        <label for="smoker-y">Ya</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="smoker" value="false" id="smoker-n"/>
+                        <label for="smoker-n">Tidak</label>
+                    </div>
                 </div>
 
                 <div>
                     <label for="brand-filter">Jika anda perokok, rokok apa yang Anda pernah coba?</label>
-                    <input type="checkbox" name="brand" value="filter" id="brand-filter" />
-                    <label for="brand-filter">Gudang Garam Filter</label>
-                    <input type="checkbox" name="brand" value="ls" id="brand-ls" />
-                    <label for="brand-ls">Lucky Strike</label>
-                    <input type="checkbox" name="brand" value="mb" id="brand-mb" />
-                    <label for="brand-mb">Marlboro</label>
-                    <input type="checkbox" name="brand" value="esse" id="brand-esse" />
-                    <label for="brand-esse">Esse</label>
+                    
+                    <div>
+                        <input type="checkbox" name="brand" value="filter" id="brand-filter" />
+                        <label for="brand-filter">Gudang Garam Filter</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="brand" value="ls" id="brand-ls" />
+                        <label for="brand-ls">Lucky Strike</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="brand" value="mb" id="brand-mb" />
+                        <label for="brand-mb">Marlboro</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="brand" value="esse" id="brand-esse" />
+                        <label for="brand-esse">Esse</label>
+                    </div>
                 </div>
 
-                <div>
+                <div class="button-group">
                     <button type="submit">Kirim Form</button>
                     <button type="reset">Reset</button>
                 </div>
             </form>
-            <br>
             <footer>
                 <a href="/forms.html">Lihat data form yang terkirim &rarr;</a>
             </footer>
