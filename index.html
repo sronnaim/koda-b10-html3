@@ -5,24 +5,29 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name="description" content="Form khusus untuk perokok">
     <title>Form Survey Perokok</title>
+    <link rel='stylesheet' href='main.css'>
 </head>
 <body>
     <main>
-        <article>
-            <h1>Form Survey Perokok</h1>
+        <article class="form">
+            <header>
+                <h1>Survey Perokok</h1>
+                <p>Form survey pendataan perokok</p>
+            </header>
             <form action="/index.html">
-                <label for="name">Siapa nama Anda?</label>
-                <br>
-                <input id="name" name="name" placeholder="Nama lengkap..." type="text" />
-                <br>
-                <label for="age">Berapa umur Anda?</label>
-                <br>
-                <input id="age" name="age" placeholder="Umur..." type="text"/>
-                <br>
+                <div>
+                    <label for="name">Siapa nama Anda?</label>
+                    <input id="name" name="name" placeholder="Nama lengkap..." type="text" />
+                </div>
+
+                <div>
+                    <label for="age">Berapa umur Anda?</label>
+                    <input id="age" name="age" placeholder="Umur..." type="text"/>
+                </div>
 
                 <div>
                     <label for="sex-m">Apa jenis kelamin Anda?</label>
-                    <br>
+
                     <input type="radio" name="sex" value="male" id="sex-m"/>
                     <label for="sex-m">Laki-laki</label>
                     
@@ -32,7 +37,6 @@
 
                 <div>
                     <label for="smoker-y">Apa Anda perokok?</label>
-                    <br>
                     <input type="radio" name="smoker" value="true" id="smoker-y"/>
                     <label for="smoker-y">Ya</label>
 
@@ -42,26 +46,24 @@
 
                 <div>
                     <label for="brand-filter">Jika anda perokok, rokok apa yang Anda pernah coba?</label>
-                    <br>
                     <input type="checkbox" name="brand" value="filter" id="brand-filter" />
                     <label for="brand-filter">Gudang Garam Filter</label>
-                    <br>
                     <input type="checkbox" name="brand" value="ls" id="brand-ls" />
                     <label for="brand-ls">Lucky Strike</label>
-                    <br>
                     <input type="checkbox" name="brand" value="mb" id="brand-mb" />
                     <label for="brand-mb">Marlboro</label>
-                    <br>
                     <input type="checkbox" name="brand" value="esse" id="brand-esse" />
                     <label for="brand-esse">Esse</label>
                 </div>
 
-                <button type="submit">Kirim Form</button>
-                <button type="reset">Reset</button>
+                <div>
+                    <button type="submit">Kirim Form</button>
+                    <button type="reset">Reset</button>
+                </div>
             </form>
             <br>
             <footer>
-                <a href="/forms.html">Lihat contoh data yang terkirim.</a>
+                <a href="/forms.html">Lihat data form yang terkirim &rarr;</a>
             </footer>
         </article>
     </main>
