@@ -1,7 +1,9 @@
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
 :root {
@@ -10,35 +12,51 @@
     --accent: hsl(0, 0%, 46%);
 }
 
+html,
 body {
-    background-color: hsl(244, 60%, 95%);  
-    padding: 0.8rem 1.5rem;  
+    height: 100%;
 }
 
-table, h1 {
+body {
+    background-color: hsl(244, 60%, 95%);
+    padding: 0.8rem 1.5rem;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+table,
+h1 {
     background-color: white;
     border-radius: 0.6rem;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
     border: solid;
     border-color: var(--border);
     border-width: 1px;
     border-spacing: 0;
+}
 
-    th, td {
-        padding: 0.5rem;
-        text-align: center;
-        border: 1px solid var(--border);
-    }
-
-    thead {
-        background-color: var(--primary);
-        color: white;
-    }
+table {
+    table-layout: fixed;
+    width: 100%;
 }
 
 h1 {
     padding: 1rem 2rem;
+}
+
+th,
+td {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+thead {
+    background-color: var(--primary);
+    color: white;
 }
 
 h1::before {

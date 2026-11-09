@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -7,6 +8,7 @@
     <meta name="description" content="Data yang sudah terkumpul dari Form Survey perokok">
     <link rel='stylesheet' href='forms.css'>
 </head>
+
 <body>
     <main>
         <article>
@@ -16,8 +18,10 @@
                     <tr>
                         <th scope="col" rowspan="2">Nama</th>
                         <th scope="col" rowspan="2">Umur</th>
+                        <th scope="col" rowspan="2">Sex</th>
                         <th scope="col" rowspan="2">Perokok</th>
                         <th scope="colgroup" colspan="4">Rokok pernah dicoba</th>
+                        <th scope="col" rowspan="2">Tanggal Kirim Form</th>
                     </tr>
                     <tr>
                         <th scope="col">Gudang Garam Filter</th>
@@ -27,102 +31,56 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">Sabowo Prubianto</th>
-                        <td>57</td>
-                        <td>Ya</td>
-                        <td>&checkmark;</td>
-                        <td>&checkmark;</td>
-                        <td>&checkmark;</td>
-                        <td>&checkmark;</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Ribran Gakabuming</th>
-                        <td>40</td>
-                        <td>Tidak</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Woko Jidodo</th>
-                        <td>56</td>
-                        <td>Ya</td>
-                        <td>&checkmark;</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Nenjamin Betanyahu</th>
-                        <td>77</td>
-                        <td>Ya</td>
-                        <td>&checkmark;</td>
-                        <td>&checkmark;</td>
-                        <td>&checkmark;</td>
-                        <td>&checkmark;</td>                    
-                    </tr>
-                    <tr>
-                        <th scope="row">Tonald Drump</th>
-                        <td>80</td>
-                        <td>Ya</td>
-                        <td></td>
-                        <td>&checkmark;</td>
-                        <td>&checkmark;</td>
-                        <td></td>                    
-                    </tr>
-                    <tr>
-                        <th scope="row">D Piddy</th>
-                        <td>15</td>
-                        <td>Ya</td>
-                        <td></td>
-                        <td></td>
-                        <td>&checkmark;</td>
-                        <td></td>                    
-                    </tr>
-                    <tr>
-                        <th scope="row">Kharlie Chirk</th>
-                        <td>32</td>
-                        <td>Tidak</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>                    
-                    </tr>
-                    <tr>
-                        <th scope="row">Eja Auditore</th>
-                        <td>67</td>
-                        <td>Ya</td>
-                        <td></td>
-                        <td>&checkmark;</td>
-                        <td></td>
-                        <td>&checkmark;</td>                    
-                    </tr>
-                    <tr>
-                        <th scope="row">Tok Dalang</th>
-                        <td>91</td>
-                        <td>Tidak</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>                    
-                    </tr>
-                    <tr>
-                        <th scope="row">Jude Bellingham</th>
-                        <td>23</td>
-                        <td>Tidak</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>                     
-                    </tr>
                 </tbody>
             </table>
             <footer>
                 <a href="/index.html">&larr; Kembali ke Form Survey Perkokok</a>
             </footer>
         </article>
-    </main>    
+    </main>
+    <script>
+        const data = JSON.parse(localStorage.getItem("entries")) || []
+        const tbodyEl = document.querySelector("tbody")
+
+        function renderRow({ name, age, sex, smoker, brand, createdAt }) {
+            const trEl = document.createElement("tr")
+            const nameEl = document.createElement("th")
+            nameEl.scope = "row"
+            nameEl.textContent = name
+
+            const ageEl = document.createElement("td")
+            ageEl.textContent = age
+
+            const sexEl = document.createElement("td")
+            sexEl.textContent = sex === "male" ? "Laki-laki" : "Perempuan"
+
+            const smokerEl = document.createElement("td")
+            smokerEl.textContent = smoker ? "✓" : ""
+
+            const filterEl = document.createElement("td")
+            filterEl.textContent = brand.includes("filter") ? "✓" : ""
+
+            const lsEl = document.createElement("td")
+            lsEl.textContent = brand.includes("ls") ? "✓" : ""
+
+            const mbEl = document.createElement("td")
+            mbEl.textContent = brand.includes("mb") ? "✓" : ""
+
+            const esseEl = document.createElement("td")
+            esseEl.textContent = brand.includes("esse") ? "✓" : ""
+
+            const submitedAtEl = document.createElement("td")
+            submitedAtEl.textContent = new Date(Number(createdAt)).toLocaleDateString("id-ID")
+
+            trEl.append(nameEl, ageEl, sexEl, smokerEl, filterEl, lsEl, mbEl, esseEl, submitedAtEl)
+
+            return trEl
+        }
+
+        data.forEach(({ name, age, sex, smoker, brand, createdAt }) => {
+            tbodyEl.appendChild(renderRow({ name, age, sex, smoker, brand, createdAt }))
+        })
+    </script>
 </body>
+
 </html>

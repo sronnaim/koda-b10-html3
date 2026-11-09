@@ -1,7 +1,8 @@
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
 }
 
 :root {
@@ -10,9 +11,15 @@
     --accent: hsl(0, 0%, 46%);
 }
 
+html,
 body {
-    background-color: hsl(244, 60%, 95%);  
-    padding: 0.8rem 1.5rem;  
+    height: 100%;
+}
+
+body {
+    background-color: hsl(244, 60%, 95%);
+    padding: 0.8rem 1.5rem;
+    font-family: sans-serif;
 }
 
 .form {
@@ -23,7 +30,8 @@ body {
 
 
     /* Each block */
-    & > header, & > form > * {
+    &>header,
+    &>form>* {
         overflow: hidden;
         border-radius: 0.5rem;
         border: solid;
@@ -34,7 +42,7 @@ body {
         flex-direction: column;
 
         /* Each items */
-        & > * {
+        &>* {
             padding: 1rem 2rem;
             border: none;
             display: flex;
@@ -42,33 +50,34 @@ body {
             align-items: center;
         }
 
-        & > :first-child{
+        &> :first-child {
             padding-top: 1.5rem;
         }
 
-        & > :nth-last-child(1) {
+        &> :nth-last-child(1) {
             padding-bottom: 1.5rem;
         }
-        
-        input[type='text'], input[type='number'] {
+
+        input[type='text'],
+        input[type='number'] {
             padding: 0.2rem 0;
             border: none;
             border-bottom: 1px solid var(--border);
         }
     }
 
-    & > header::before {
+    &>header::before {
         content: "";
         display: block;
         position: absolute;
-        top: 0; 
+        top: 0;
         left: 0;
         height: 10px;
         width: 100%;
         background-color: var(--primary);
     }
 
-    & > header {
+    &>header {
         position: relative;
         gap: 0;
 
@@ -78,12 +87,12 @@ body {
             border-color: var(--border);
         }
 
-        & > h1 {
+        &>h1 {
             font-weight: 400;
         }
     }
 
-    & > form {
+    &>form {
         display: flex;
         flex-direction: column;
         gap: 1rem;

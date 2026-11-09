@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='id'>
+
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -7,6 +8,7 @@
     <title>Form Survey Perokok</title>
     <link rel='stylesheet' href='main.css'>
 </head>
+
 <body>
     <main>
         <article class="form">
@@ -14,18 +16,20 @@
                 <h1>Survey Perokok</h1>
                 <p>Form survey pendataan perokok</p>
             </header>
-            <form action="/index.html">
+            <form action="./index.html">
                 <div>
                     <label for="name">Siapa nama Anda?</label>
                     <div>
-                        <input id="name" name="name" placeholder="Nama lengkap..." type="text" />
+                        <input required="true" pattern="/^[a-z ,.'-]+$/i" id="name" name="name"
+                            placeholder="Nama lengkap..." type="text" autocomplete="name" />
                     </div>
                 </div>
 
                 <div>
                     <label for="age">Berapa umur Anda?</label>
                     <div>
-                        <input id="age" name="age" placeholder="Umur..." type="number"/>
+                        <input required="true" id="age" name="age" min="10" max="110" placeholder="Umur..."
+                            type="number" />
                     </div>
                 </div>
 
@@ -33,32 +37,31 @@
                     <label for="sex-m">Apa jenis kelamin Anda?</label>
 
                     <div>
-                        <input type="radio" name="sex" value="male" id="sex-m"/>
+                        <input required="true" type="radio" name="sex" value="male" id="sex-m" />
                         <label for="sex-m">Laki-laki</label>
                     </div>
                     <div>
-                        <input type="radio" name="sex" value="female" id="sex-f"/>
+                        <input type="radio" name="sex" value="female" id="sex-f" />
                         <label for="sex-f">Perempuan</label>
                     </div>
                 </div>
 
                 <div>
                     <label for="smoker-y">Apa Anda perokok?</label>
-
                     <div>
-                        <input type="radio" name="smoker" value="true" id="smoker-y"/>
+                        <input required="true" type="radio" name="smoker" value="true" id="smoker-y" />
                         <label for="smoker-y">Ya</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="smoker" value="false" id="smoker-n"/>
+                        <input type="radio" name="smoker" value="false" id="smoker-n" />
                         <label for="smoker-n">Tidak</label>
                     </div>
                 </div>
 
                 <div>
                     <label for="brand-filter">Jika anda perokok, rokok apa yang Anda pernah coba?</label>
-                    
+
                     <div>
                         <input type="checkbox" name="brand" value="filter" id="brand-filter" />
                         <label for="brand-filter">Gudang Garam Filter</label>
@@ -87,5 +90,28 @@
             </footer>
         </article>
     </main>
+
+    <script>
+        const formEl = document.querySelector("form")
+
+        formEl.addEventListener("submit", handleOnSubmit)
+
+        function handleOnSubmit(e) {
+            const data = JSON.parse(localStorage.getItem("entries")) || []
+
+            const fd = new FormData(e.target)
+
+            fd.set("createdAt", Date.now())
+
+            const entry = Object.fromEntries(fd.entries())
+
+            entry.brand = fd.getAll("brand")
+
+            data.push(entry)
+
+            localStorage.setItem("entries", JSON.stringify(data))
+        }
+    </script>
 </body>
+
 </html>
