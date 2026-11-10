@@ -6,6 +6,10 @@ Form survey perokok dengan HTML
 
 ![Form Demo](/demo.gif)
 
+## Form Snapshot
+
+![Form Snapshot](/form.png)
+
 ## Collected Form Entries Example
 
-![Data Example](/image.png)
+![Data Example](/table.png)

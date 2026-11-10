@@ -9,35 +9,45 @@
     <link rel='stylesheet' href='forms.css'>
 </head>
 
-<body>
-    <main>
+<body class="min-h-screen bg-indigo-50 font-sans">
+    <main class="container container max-w-2xl py-2 px-4 m-auto">
         <article>
-            <h1>Data Form Survey Perokok</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col" rowspan="2">Nama</th>
-                        <th scope="col" rowspan="2">Umur</th>
-                        <th scope="col" rowspan="2">Sex</th>
-                        <th scope="col" rowspan="2">Perokok</th>
-                        <th scope="colgroup" colspan="4">Rokok pernah dicoba</th>
-                        <th scope="col" rowspan="2">Tanggal Kirim Form</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Gudang Garam Filter</th>
-                        <th scope="col">Lucky Strike</th>
-                        <th scope="col">Marlboro</th>
-                        <th scope="col">Esse</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <h1 class="text-3xl relative overflow-hidden rounded-lg bg-[white] border-[1px] px-8 py-4">
+                <div class="bg-indigo-600 absolute inset-0 h-2"></div>
+                Data Form Survey Perokok
+            </h1>
+            <div class="border-[1px] rounded-lg overflow-hidden bg-[white] mt-3">
+                <table class="[&_td]:p-2 [&_th]:p-2 [&_tr>*]:text-center [&_tr>*]:text-sm table-auto">
+                    <thead
+                        class="bg-indigo-600 text-[white] [&_th:not(:first-child)]:border-s-[1px] [&_th:not(:last-child)]:border-e-[1px]">
+                        <tr>
+                            <th scope="col" rowspan="2">Nama</th>
+                            <th scope="col" rowspan="2">Umur</th>
+                            <th scope="col" rowspan="2">Sex</th>
+                            <th scope="col" rowspan="2">Perokok</th>
+                            <th scope="colgroup" colspan="4">Rokok pernah dicoba</th>
+                            <th scope="col" rowspan="2">Tanggal Kirim Form</th>
+                        </tr>
+                        <tr class="*:border-t-[1px]">
+                            <th scope="col">Gudang Garam Filter</th>
+                            <th scope="col">Lucky Strike</th>
+                            <th scope="col">Marlboro</th>
+                            <th scope="col">Esse</th>
+                        </tr>
+                    </thead>
+                    <tbody
+                        class="[&>*:nth-child(even)]:bg-indigo-100 [&_tr>*:not(:first-child)]:border-s-[1px] [&_tr>*]:border-[rgba(0,0,0,0.2)]">
+                    </tbody>
+                </table>
+            </div>
             <footer>
-                <a href="/index.html">&larr; Kembali ke Form Survey Perkokok</a>
+                <a href="/index.html" class="font-medium text-indigo-600 underline">&larr; Kembali ke Form Survey
+                    Perkokok</a>
             </footer>
         </article>
     </main>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
     <script>
         const data = JSON.parse(localStorage.getItem("entries")) || []
         const tbodyEl = document.querySelector("tbody")
